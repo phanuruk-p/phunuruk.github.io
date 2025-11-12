@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Phanurak — Portfolio</title>
+  <meta name="description" content="Phanurak | Developer Portfolio">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme:{extend:{
+        colors:{bg:'#0C0D10',bg2:'#111317',line:'#1F242C',ink:'#E5E7EB',muted:'#9CA3AF',note:'#6B7280'},
+        fontFamily:{space:['Space Grotesk','sans-serif'],mono:['JetBrains Mono','monospace']},
+        animation:{float:'float 6s ease-in-out infinite',fadein:'fade .6s ease-out'},
+        keyframes:{float:{'0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-12px)'}},
+                   fade:{from:{opacity:0,transform:'translateY(16px)'},to:{opacity:1,transform:'translateY(0)'}}}
+      }}
+    }
+  </script>
+  <style>
+    :root{--a1:#e5e7eb;--a2:#9ca3af;--a3:#6b7280}
+    body{font-family:'Space Grotesk',sans-serif;background:linear-gradient(180deg,#0C0D10,#111317);color:#e5e7eb}
+    a{text-decoration:none}
+    .glass{background:rgba(18,19,23,.72);backdrop-filter:blur(10px);border:1px solid #1F242C}
+    .grad-text{background:linear-gradient(135deg,var(--a1),var(--a2),var(--a3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;background-size:200% 200%;animation:shift 3s ease infinite}
+    @keyframes shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+    /* canvases */
+    #particles,#cursor{position:fixed;inset:0;pointer-events:none;z-index:-1}
+    #particles{opacity:.6}
+    /* underline hover */
+    .link-ux{position:relative}
+    .link-ux:after{content:'';position:absolute;left:0;bottom:-3px;height:2px;width:0;background:linear-gradient(90deg,var(--a1),var(--a3));transition:width .3s}
+    .link-ux:hover:after{width:100%}
+  </style>
+</head>
+<body class="overflow-x-hidden">
+
+  <!-- BG Grid + Particles + Cursor Trail -->
+  <div class="fixed inset-0 pointer-events-none opacity-[.10]" style="background-image:
+      linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+      background-size:46px 46px; z-index:-2"></div>
+  <canvas id="particles"></canvas>
+  <canvas id="cursor"></canvas>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 glass border-b border-line">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="font-mono text-xl md:text-2xl grad-text">&lt;Phanurak/&gt;</a>
+      <ul class="hidden md:flex gap-8 text-[15px]">
+        <li><a class="link-ux" href="#home">Home</a></li>
+        <li><a class="link-ux" href="#about">About</a></li>
+        <li><a class="link-ux" href="#skills">Skills</a></li>
+        <li><a class="link-ux" href="#projects">Projects</a></li>
+        <li><a class="link-ux" href="#contact">Contact</a></li>
+      </ul>
+      <a href="mailto:phanurak.dev@mail.com"
+         class="hidden sm:inline-block px-4 py-2 rounded-lg font-semibold glass hover:shadow-lg transition">
+         Say Hi
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="min-h-[92vh] flex items-center pt-24">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6 animate-fadein">
+        <span class="glass inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full border border-line">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Available for Projects
+        </span>
+        <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+          สวัสดี, ผม <span class="grad-text">Phanurak</span>
+          <span class="block mt-2" id="typing" aria-label="title">Developer</span>
+        </h1>
+        <p class="text-muted/90 text-lg">
+          พัฒนาเว็บ/แอปที่สวย ลื่น ปลอดภัย ใช้เทคโนโลยีสมัยใหม่และโฟกัส UX ที่ดี
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects" class="px-6 py-3 glass rounded-lg font-semibold border border-line hover:bg-white/5 transition">
+            ดูผลงาน
+          </a>
+          <a href="#contact" class="px-6 py-3 rounded-lg font-semibold"
+             style="background:linear-gradient(90deg,var(--a1),var(--a3))">ติดต่อ</a>
+        </div>
+        <div class="grid grid-cols-3 gap-6 pt-2 text-center">
+          <div><div class="text-3xl font-bold grad-text">5+</div><div class="text-note">Years</div></div>
+          <div><div class="text-3xl font-bold grad-text">40+</div><div class="text-note">Projects</div></div>
+          <div><div class="text-3xl font-bold grad-text">—</div><div class="text-note">Happy Clients</div></div>
+        </div>
+      </div>
+
+      <!-- card -->
+      <div class="relative animate-float">
+        <div class="glass rounded-2xl p-6 border border-line">
+          <div class="flex items-center gap-2 mb-4 pb-3 border-b border-line">
+            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+            <span class="ml-3 text-xs text-note font-mono">about.me</span>
+          </div>
+          <div class="font-mono text-sm leading-7 text-ink/90">
+            const name = "<span class="grad-text">Phanurak</span>";
+            <br>const stack = ["Frontend","Backend","UI/UX"];
+            <br>function build(){ return "Clean • Fast • Secure"; }
+          </div>
+          <div class="flex gap-3 mt-6 pt-5 border-t border-line">
+            <a class="glass w-10 h-10 rounded-lg flex items-center justify-center hover:scale-110 transition" href="https://github.com/phanurak" target="_blank" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" class="w-5 h-5"><path fill="currentColor" d="M12 .5A12 12 0 0 0 0 12.6c0 5.3 3.4 9.8 8 11.4c.6.1.8-.2.8-.6v-2c-3.3.7-4-1.6-4-1.6c-.6-1.6-1.5-2-1.5-2c-1.2-.8.1-.8.1-.8c1.3.1 2 .9 2 .9c1.1 2 3 1.4 3.8 1.1c.1-.8.4-1.4.7-1.7c-2.7-.3-5.6-1.4-5.6-6.1c0-1.4.5-2.6 1.3-3.6c-.1-.4-.6-1.7.1-3.6c0 0 1-.3 3.5 1.3c1-.3 2-.4 3.1-.4s2.1.1 3.1.4c2.5-1.6 3.5-1.3 3.5-1.3c.7 1.9.2 3.2.1 3.6c.9 1 1.3 2.2 1.3 3.6c0 4.7-2.9 5.8-5.6 6.1c.4.3.8 1 .8 2v3c0 .4.2.7.8.6c4.6-1.5 8-6.1 8-11.4A12 12 0 0 0 12 .5z"/></svg>
+            </a>
+            <a class="glass w-10 h-10 rounded-lg flex items-center justify-center hover:scale-110 transition" href="mailto:phanurak.dev@mail.com" aria-label="Email">
+              <svg viewBox="0 0 24 24" class="w-5 h-5"><path fill="currentColor" d="M12 13L2 6.76V18h20V6.76L12 13Zm0-2.47L2 4h20l-10 6.53Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-28">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12"><h2 class="text-4xl font-bold"><span class="grad-text">เกี่ยวกับผม</span></h2></div>
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div class="glass p-6 rounded-2xl border border-line">
+          <h3 class="text-xl font-semibold mb-2">สิ่งที่ผมทำ</h3>
+          <p class="text-muted">ออกแบบและพัฒนาเว็บไซต์/เว็บแอปที่โหลดไว เขียนโค้ดอ่านง่าย ทดสอบได้ และดูแลต่อได้</p>
+        </div>
+        <div class="glass p-6 rounded-2xl border border-line">
+          <h3 class="text-xl font-semibold mb-2">สแต็กที่ถนัด</h3>
+          <p class="text-muted">React/Next.js, Node.js/Express, Tailwind, TypeScript, REST/GraphQL, MongoDB/PostgreSQL</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-28 bg-white/5/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12"><h2 class="text-4xl font-bold"><span class="grad-text">Skills</span></h2></div>
+      <div class="grid md:grid-cols-3 gap-7">
+        <div class="glass p-6 rounded-2xl border border-line">
+          <h3 class="font-semibold mb-3">Frontend</h3>
+          <ul class="text-muted space-y-1">
+            <li>React / Next.js / Vite</li><li>TypeScript / Tailwind</li><li>Framer Motion</li>
+          </ul>
+        </div>
+        <div class="glass p-6 rounded-2xl border border-line">
+          <h3 class="font-semibold mb-3">Backend</h3>
+          <ul class="text-muted space-y-1">
+            <li>Node.js / Express</li><li>MongoDB / PostgreSQL</li><li>Auth / JWT</li>
+          </ul>
+        </div>
+        <div class="glass p-6 rounded-2xl border border-line">
+          <h3 class="font-semibold mb-3">Dev & Tools</h3>
+          <ul class="text-muted space-y-1">
+            <li>GitHub / Actions</li><li>Docker (พื้นฐาน)</li><li>CI/CD & Testing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-28">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold"><span class="grad-text">Featured Projects</span></h2>
+        <p class="text-note mt-2">ลิงก์ Code/Live จะชี้ไปยัง GitHub ของคุณอัตโนมัติ (แก้ชื่อ repo ได้ใน JS)</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7" id="proj-grid"></div>
+
+      <!-- project card template -->
+      <template id="proj-tpl">
+        <article class="group glass rounded-2xl overflow-hidden border border-line hover:shadow-lg hover:shadow-black/30 transition">
+          <div class="h-44 bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center">
+            <svg viewBox="0 0 24 24" class="w-12 h-12 text-ink/60"><path fill="currentColor" d="M3 5h18v14H3zM5 7v10h14V7z"/></svg>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-1 title"></h3>
+            <p class="text-muted mb-4 desc"></p>
+            <div class="flex gap-4">
+              <a class="code link-ux text-ink/80 hover:text-ink" target="_blank">Code</a>
+              <a class="live link-ux text-ink/80 hover:text-ink" target="_blank">Live</a>
+            </div>
+          </div>
+        </article>
+      </template>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-28 bg-white/5/5">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-10"><h2 class="text-4xl font-bold"><span class="grad-text">ติดต่อ</span></h2></div>
+      <form class="glass p-8 md:p-10 rounded-2xl border border-line max-w-3xl mx-auto space-y-5">
+        <div class="grid md:grid-cols-2 gap-5">
+          <input class="glass px-4 py-3 rounded-lg border border-line focus:outline-none" placeholder="ชื่อ">
+          <input type="email" class="glass px-4 py-3 rounded-lg border border-line focus:outline-none" placeholder="อีเมล">
+        </div>
+        <input class="glass px-4 py-3 rounded-lg w-full border border-line focus:outline-none" placeholder="หัวข้อ">
+        <textarea rows="6" class="glass px-4 py-3 rounded-lg w-full border border-line focus:outline-none" placeholder="ข้อความ..."></textarea>
+        <button class="px-6 py-3 rounded-lg font-semibold" style="background:linear-gradient(90deg,var(--a1),var(--a3))">ส่งข้อความ</button>
+      </form>
+      <div class="mt-10 flex justify-center gap-5">
+        <a href="https://github.com/phanurak" target="_blank" class="glass w-12 h-12 rounded-xl flex items-center justify-center border border-line hover:scale-110 transition" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" class="w-5 h-5"><path fill="currentColor" d="M12 .5A12 12 0 0 0 0 12.6c0 5.3 3.4 9.8 8 11.4c.6.1.8-.2.8-.6v-2c-3.3.7-4-1.6-4-1.6c-.6-1.6-1.5-2-1.5-2c-1.2-.8.1-.8.1-.8c1.3.1 2 .9 2 .9c1.1 2 3 1.4 3.8 1.1c.1-.8.4-1.4.7-1.7c-2.7-.3-5.6-1.4-5.6-6.1c0-1.4.5-2.6 1.3-3.6c-.1-.4-.6-1.7.1-3.6c0 0 1-.3 3.5 1.3c1-.3 2-.4 3.1-.4s2.1.1 3.1.4c2.5-1.6 3.5-1.3 3.5-1.3c.7 1.9.2 3.2.1 3.6c.9 1 1.3 2.2 1.3 3.6c0 4.7-2.9 5.8-5.6 6.1c.4.3.8 1 .8 2v3c0 .4.2.7.8.6c4.6-1.5 8-6.1 8-11.4A12 12 0 0 0 12 .5z"/></svg>
+        </a>
+        <a href="mailto:phanurak.dev@mail.com" class="glass w-12 h-12 rounded-xl flex items-center justify-center border border-line hover:scale-110 transition" aria-label="Email">
+          <svg viewBox="0 0 24 24" class="w-5 h-5"><path fill="currentColor" d="M12 13L2 6.76V18h20V6.76L12 13Zm0-2.47L2 4h20l-10 6.53Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 border-t border-line">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-note">
+      <div class="font-mono grad-text text-xl">&lt;Phanurak/&gt;</div>
+      <div class="text-sm">&copy; <span id="year"></span> Phanurak — Portfolio</div>
+      <div class="text-sm">Built clean • fast • secure</div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== typing =====
+    const typingTarget = document.getElementById('typing');
+    const words = ['Developer','Frontend','Full-Stack','Problem Solver'];
+    let wi=0, ci=0, del=false;
+    function loopType(){
+      const word = words[wi];
+      typingTarget.textContent = del ? word.slice(0,ci--) : word.slice(0,ci++);
+      if(!del && ci===word.length+2){ del=true }
+      if(del && ci===0){ del=false; wi=(wi+1)%words.length }
+      setTimeout(loopType, del?70:120);
+    } loopType();
+
+    // ===== particles background =====
+    const p = document.getElementById('particles'), px = p.getContext('2d');
+    function resizeP(){ p.width=innerWidth; p.height=innerHeight }
+    resizeP();
+    class Dot{ constructor(){
+      this.x=Math.random()*p.width; this.y=Math.random()*p.height;
+      this.vx=Math.random()*.4-.2; this.vy=Math.random()*.4-.2;
+      this.r=Math.random()*2+1; this.c=['#e5e7eb','#9ca3af','#6b7280'][Math.floor(Math.random()*3)];
+    } update(){ this.x+=this.vx; this.y+=this.vy;
+      if(this.x>p.width)this.x=0; if(this.x<0)this.x=p.width;
+      if(this.y>p.height)this.y=0; if(this.y<0)this.y=p.height;
+    } draw(){ px.fillStyle=this.c; px.beginPath(); px.arc(this.x,this.y,this.r,0,Math.PI*2); px.fill(); } }
+    const dots = Array.from({length:110},()=>new Dot());
+    (function anim(){
+      px.clearRect(0,0,p.width,p.height);
+      dots.forEach(d=>{d.update(); d.draw();});
+      // lines
+      dots.forEach((a,i)=>dots.slice(i+1).forEach(b=>{
+        const dx=a.x-b.x, dy=a.y-b.y, d=Math.hypot(dx,dy);
+        if(d<100){ px.strokeStyle=`rgba(229,231,235,${1-d/100})`; px.lineWidth=.4; px.beginPath(); px.moveTo(a.x,a.y); px.lineTo(b.x,b.y); px.stroke(); }
+      }));
+      requestAnimationFrame(anim);
+    })();
+    addEventListener('resize',resizeP);
+
+    // ===== cursor trail (soft glow) =====
+    const c = document.getElementById('cursor'), cx = c.getContext('2d'); function rC(){ c.width=innerWidth; c.height=innerHeight } rC();
+    let trails=[]; addEventListener('mousemove',e=>{ trails.push({x:e.clientX,y:e.clientY,a:1}); if(trails.length>30) trails.shift();});
+    (function ct(){
+      cx.clearRect(0,0,c.width,c.height);
+      trails.forEach(t=>{ cx.fillStyle=`rgba(229,231,235,${t.a})`; cx.beginPath(); cx.arc(t.x,t.y,2,0,Math.PI*2); cx.fill(); t.a-=.04; });
+      requestAnimationFrame(ct);
+    })(); addEventListener('resize',rC);
+
+    // ===== projects (edit repo namesตามจริง) =====
+    const username = 'phanurak';
+    const projects = [
+      {t:'Landing Page Kit', d:'Starter UI ชุดสวย โหลดไว ใช้งานจริงได้',
+       code:`https://github.com/${username}/landing-kit`, live:`https://${username}.github.io/landing-kit/`},
+      {t:'Task Manager', d:'แอปจัดการงานด้วย LocalStorage/IndexedDB',
+       code:`https://github.com/${username}/task-manager`, live:`https://${username}.github.io/task-manager/`},
+      {t:'API Playground', d:'ตัวอย่างเรียก REST/GraphQL พร้อมโค้ดสวยอ่านง่าย',
+       code:`https://github.com/${username}/api-playground`, live:`https://${username}.github.io/api-playground/`},
+      {t:'UI Components', d:'ปุ่ม/การ์ด/โมดัล สไตล์มินิมอลพร้อมใช้',
+       code:`https://github.com/${username}/ui-components`, live:`https://${username}.github.io/ui-components/`},
+      {t:'Charts Demo', d:'กราฟสถิติสวย ๆ ด้วย Canvas/Chart libs',
+       code:`https://github.com/${username}/charts-demo`, live:`https://${username}.github.io/charts-demo/`},
+      {t:'Portfolio v1', d:'พอร์ตโฟลิโอเวอร์ชันแรก ปรับแต่งต่อได้',
+       code:`https://github.com/${username}/portfolio-v1`, live:`https://${username}.github.io/portfolio-v1/`}
+    ];
+    const grid=document.getElementById('proj-grid'), tpl=document.getElementById('proj-tpl').content;
+    projects.forEach(pj=>{ const n=tpl.cloneNode(true); n.querySelector('.title').textContent=pj.t; n.querySelector('.desc').textContent=pj.d; n.querySelector('.code').href=pj.code; n.querySelector('.live').href=pj.live; grid.appendChild(n); });
+
+    // year
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
